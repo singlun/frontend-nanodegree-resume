@@ -317,43 +317,43 @@ var resumeView = {
     var formattedHTMLonlineURL= HTMLonlineURL.replace("%data%", model.education.onlineCourses[0].url);    
     octopus.appendOnline(formattedHTMLonlineURL); 
 
-    $(document).ready(function() {
-      $('button').click(function() {
-        var $name = $('#name');
-        var iName = inName($name.text()) || function(){};
-        $name.html(iName);
-      });
-    });
+    // $(document).ready(function() {
+    //   $('button').click(function() {
+    //     var $name = $('#name');
+    //     var iName = inName($name.text()) || function(){};
+    //     $name.html(iName);
+    //   });
+    // });
 
-    var clickLocations = [];
+    // var clickLocations = [];
 
-    function logClicks(x,y) {
-      clickLocations.push(
-        {
-          x: x,
-          y: y
-        }
-      );
-      console.log('x location: ' + x + '; y location: ' + y);
-    }
+    // function logClicks(x,y) {
+    //   clickLocations.push(
+    //     {
+    //       x: x,
+    //       y: y
+    //     }
+    //   );
+    //   console.log('x location: ' + x + '; y location: ' + y);
+    // }
     
-    $(document).click(function(loc) {
-      // your code goes here!
-    });    
-
-    this.map = '';    // declares a global map variable
-
-    window.addEventListener('load', this.initializeMap());
-
-    // window.addEventListener('resize', function(e) {
-    //   //Make sure the map bounds get updated on page resize
-    //  this.map.fitBounds(mapBounds);
+    // $(document).click(function(loc) {
+    //   // your code goes here!
     // });    
+
+    // this.map = '';    // declares a global map variable
+
+    // window.addEventListener('load', this.initializeMap());
+
+    //  window.addEventListener('resize', function(e) {
+    //    //Make sure the map bounds get updated on page resize
+    //   this.map.fitBounds(mapBounds);
+    //  });    
               
   },
 
   initializeMap: function() {
-    this.locations = [];
+    var locations = [];
 
     var mapOptions = {
       disableDefaultUI: true
@@ -361,16 +361,16 @@ var resumeView = {
 
     this.map = new google.maps.Map(document.querySelector('#mapDiv'), mapOptions);
     window.mapBounds = new google.maps.LatLngBounds();
-    this.locationFinder();
-    //this.pinPoster(this.locations);
+    locations = this.locationFinder();
+    this.pinPoster(locations);
   },
 
   locationFinder: function() {
     // initializes an empty array
-    //this.locations = [];
+    var locations = [];
 
     // adds the single location property from bio to the locations array
-    this.locations.push(model.bio.contacts.location);
+    locations.push(model.bio.contacts.location);
 
     // iterates through school locations and appends each location to
     // the locations array. Note that forEach is used for array iteration
@@ -387,6 +387,8 @@ var resumeView = {
     model.work.jobs.forEach(function(job){
       locations.push(job.location);
     });
+
+    return locations;
   },
 
   createMapMarker: function(placeData) {
@@ -434,6 +436,7 @@ var resumeView = {
     // creates a Google place search service object. PlacesService does the work of
     // actually searching for location data.
     var service = new google.maps.places.PlacesService(this.map);
+    var callback = this.callback();
 
     // Iterates through the array of locations, creates a search object for each location
       locations.forEach(function(place){

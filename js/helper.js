@@ -30,30 +30,33 @@ var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a class="work-entry" href="#">%data%';
+var HTMLworkEmployer = '<a class="work-entry" href="%url%">%data%';
 var HTMLworkTitle = ' - %data%</a>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
 var HTMLworkDescription = '<p class="work-entry"><br>%data%</p>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a class="project-entry" href="#">%data%</a>';
+var HTMLprojectTitle = '<a class="project-entry" href="%url%">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p class="project-entry"><br>%data%</p>';
 var HTMLprojectImage = '<img class="project-entry" src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a  class="education-entry" href="#">%data%';
+var HTMLschoolName = '<a class="education-entry" href="%url%">%data%';
 var HTMLschoolDegree = ' -- %data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<div class="education-entry"><em><br>Major: %data%</em></div>';
 
 var HTMLonlineClasses = '<div class="online-entry"></div>';
-var HTMLonlineTitle = '<a  class="online-entry" href="#">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
+var HTMLonlineTitle = '<div class="online-entry"><a href="%url%">%data%';
+var HTMLonlineSchool = ' - Udacity</a></div>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<div class="online-entry"><br><a href="#">%data%</a><div>';
+var HTMLonlineURL = '<div class="online-entry"><br><a href="%data%">Front-End Devloper Course Certificate</a><div>';
+
+var HTMLSalary = '<div class="salary-entry"></div>';
+var HTMLExpectedSal = '<div class="salary-entry">$2,1000 ~ $2,5000</div>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
